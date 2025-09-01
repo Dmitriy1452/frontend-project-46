@@ -6,6 +6,9 @@
   "bugs": {
     "url": "https://github.com/Dmitriy1452/frontend-project-46/issues"
   },
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dmitriy1452/frontend-project-46.git"
