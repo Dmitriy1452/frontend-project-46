@@ -1,10 +1,9 @@
-import { Command } from 'commander'
-export const gendiff = (filepath1, filepath2) => {
-    const program = new Command()
-        program
-            .description('Compares two configuration files and shows a difference')
-            .option('-V, --version', 'output the version number')
-            .option('-f, --format [type]', 'output format')
-            .arguments('<filepath1> <filepath2>')
-program.parse()
+import * as fs from 'node:fs'
+import { cwd } from 'node:process'
+import path from 'node:path'
+
+export const file = (filepath1, filepath2) => {
+    const readFile1 = JSON.parse(fs.readFileSync(path.resolve(cwd(), filepath1)).toString())
+    const readFile2 = JSON.parse(fs.readFileSync(path.resolve(cwd(), filepath2)).toString())
+    return [readFile1, readFile2]
 }
