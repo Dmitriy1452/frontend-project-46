@@ -9,3 +9,4 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Dmitriy1452_frontend-project-46&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Dmitriy1452_frontend-project-46)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Dmitriy1452_frontend-project-46&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Dmitriy1452_frontend-project-46)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Dmitriy1452_frontend-project-46&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Dmitriy1452_frontend-project-46)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Dmitriy1452_frontend-project-44&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Dmitriy1452_frontend-project-44)
