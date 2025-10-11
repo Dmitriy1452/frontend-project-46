@@ -1,4 +1,6 @@
 install:
-	npm ci,
+	npm ci
 gendiff:
 	node bin/gendiff.js
+test:
+	npm test
