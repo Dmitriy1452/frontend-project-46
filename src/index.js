@@ -43,5 +43,5 @@ export const genDiff = (filepath1, filepath2) => {
       return [`+ ${key}: ${obj2[key]}`]
     }
   })
-  return `{\n${result.join('\n')}\n}`
+  return `{\n${result.join('\n')}\n}\n`
 }
