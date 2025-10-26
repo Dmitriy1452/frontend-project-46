@@ -3,20 +3,26 @@ import { cwd } from 'node:process'
 import path from 'node:path'
 import yaml from 'js-yaml'
 
-export const parseJSON = (filepath1, filepath2) => {
-  const readFile1 = JSON.parse(fs.readFileSync(path.resolve(cwd(), filepath1)).toString())
-  const readFile2 = JSON.parse(fs.readFileSync(path.resolve(cwd(), filepath2)).toString())
-  const result = [readFile1, readFile2]
-  return result
+const parseFiles = (filepath1, filepath2) => {
+  const parseSingleFile = (filepath) => {
+    const format = path.extname(filepath)
+    const absolutePath = path.resolve(cwd(), filepath)
+    const data = fs.readFileSync(absolutePath, 'utf-8')
+
+    if (format === '.json') {
+      return JSON.parse(data)
+    }
+    else if (format === '.yml' || format === '.yaml') {
+      return yaml.load(data)
+    }
+    else {
+      throw new Error(`Неподдерживаемый формат: ${format}`)
+    }
+  }
+
+  const file1 = parseSingleFile(filepath1)
+  const file2 = parseSingleFile(filepath2)
+  return [file1, file2]
 }
 
-export const parseYAML = (filepath) => {
-  try {
-    const parsedFile = yaml.load(fs.readFileSync(filepath, 'utf-8'))
-    return parsedFile
-  }
-  catch (error) {
-    console.log(error)
-    return null
-  }
-}
+export default parseFiles

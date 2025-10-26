@@ -24,7 +24,7 @@ describe('Compare YAML files', () => {
   test('Compare with ".yml" extension', () => {
     const file1 = getFixturesPath('file1.yml')
     const file2 = getFixturesPath('file2.yml')
-    const expected = readFile('expected-reuslt.txt')
+    const expected = readFile('expected-result.txt')
     const result = genDiff(file1, file2)
 
     expect(result).toEqual(expected)

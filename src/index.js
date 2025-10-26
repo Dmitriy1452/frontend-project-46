@@ -1,4 +1,4 @@
-import { parseJSON } from '../src/parsers.js'
+import parseFiles from '../src/parsers.js'
 import _ from 'lodash'
 
 const getSortedKeys = (files) => {
@@ -9,7 +9,7 @@ const getSortedKeys = (files) => {
 }
 
 export const genDiff = (filepath1, filepath2) => {
-  const [obj1, obj2] = parseJSON(filepath1, filepath2)
+  const [obj1, obj2] = parseFiles(filepath1, filepath2)
   const allKeys = getSortedKeys([obj1, obj2])
 
   const result = allKeys.flatMap((key) => {
