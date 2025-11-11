@@ -12,8 +12,8 @@ const getFixturesPath = filename => path.join(__dirname, '..', '__fixtures__', f
 const readFile = filename => fs.readFileSync(getFixturesPath(filename), 'utf-8')
 
 test('Comparing JSON files', () => {
-  const file1 = getFixturesPath('file1.json')
-  const file2 = getFixturesPath('file2.json')
+  const file1 = getFixturesPath('second-file1.json')
+  const file2 = getFixturesPath('second-file2.json')
   const expected = readFile('expected-result.txt')
   const result = genDiff(file1, file2)
 
@@ -22,8 +22,8 @@ test('Comparing JSON files', () => {
 
 describe('Compare YAML files', () => {
   test('Compare with ".yml" extension', () => {
-    const file1 = getFixturesPath('file1.yml')
-    const file2 = getFixturesPath('file2.yml')
+    const file1 = getFixturesPath('second-file1.yml')
+    const file2 = getFixturesPath('second-file2.yml')
     const expected = readFile('expected-result.txt')
     const result = genDiff(file1, file2)
 
@@ -31,8 +31,8 @@ describe('Compare YAML files', () => {
   })
 
   test('Compare with ".yaml" extension', () => {
-    const file1 = getFixturesPath('file1.yaml')
-    const file2 = getFixturesPath('file2.yaml')
+    const file1 = getFixturesPath('second-file1.yaml')
+    const file2 = getFixturesPath('second-file2.yaml')
     const expected = readFile('expected-result.txt')
     const result = genDiff(file1, file2)
 
