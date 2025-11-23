@@ -8,5 +8,5 @@ program
   .version('1.0.0', '-V, --version', 'output the current version')
   .option('-f, --format [type]', 'output format', 'stylish')
   .arguments('<filepath1> <filepath2>')
-  .action((filepath1, filepath2) => console.log(genDiff(filepath1, filepath2)))
+  .action((filepath1, filepath2, options) => console.log(genDiff(filepath1, filepath2, options.format)))
 program.parse(process.argv)

@@ -5,6 +5,8 @@ const currentIndent = (depth, shiftLeft = 2) => ' '.repeat(depth * 4 - shiftLeft
 
 const stringify = (value, depth) => {
   if (!_.isPlainObject(value)) {
+    if (value === null) return 'null'
+    if (value === '') return ''
     return String(value)
   }
 
@@ -15,13 +17,6 @@ const stringify = (value, depth) => {
   return `{\n${lines.join('\n')}\n${indent(depth)}}`
 }
 
-const formatValue = (value, depth) => {
-  if (value === null) return 'null'
-  if (value === undefined) return 'undefined'
-  if (value === '') return ''
-  return stringify(value, depth)
-}
-
 const stylish = (tree) => {
   const iter = (nodes, depth) => {
     const lines = nodes.map((node) => {
@@ -29,16 +24,16 @@ const stylish = (tree) => {
 
       switch (type) {
         case 'added':
-          return `${currentIndent(depth)}+ ${key}: ${formatValue(node.value, depth)}`
+          return `${currentIndent(depth)}+ ${key}: ${stringify(node.value, depth)}`
         case 'removed':
-          return `${currentIndent(depth)}- ${key}: ${formatValue(node.value, depth)}`
+          return `${currentIndent(depth)}- ${key}: ${stringify(node.value, depth)}`
         case 'changed':
           return [
-            `${currentIndent(depth)}- ${key}: ${formatValue(node.value1, depth)}`,
-            `${currentIndent(depth)}+ ${key}: ${formatValue(node.value2, depth)}`,
+            `${currentIndent(depth)}- ${key}: ${stringify(node.value1, depth)}`,
+            `${currentIndent(depth)}+ ${key}: ${stringify(node.value2, depth)}`,
           ].join('\n')
         case 'unchanged':
-          return `${currentIndent(depth)}  ${key}: ${formatValue(node.value, depth)}`
+          return `${currentIndent(depth)}  ${key}: ${stringify(node.value, depth)}`
         case 'nested':
           return `${currentIndent(depth)}  ${key}: ${iter(node.children, depth + 1)}`
         default:
@@ -49,7 +44,7 @@ const stylish = (tree) => {
     return `{\n${lines.join('\n')}\n${indent(depth - 1)}}`
   }
 
-  return iter(tree, 1) + '\n'
+  return iter(tree, 1)
 }
 
 export default stylish
