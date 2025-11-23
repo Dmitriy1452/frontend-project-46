@@ -42,7 +42,7 @@ const plain = (tree) => {
     return lines.join('\n')
   }
 
-  return iter(tree, '') + '\n'
+  return iter(tree, '')
 }
 
 export default plain

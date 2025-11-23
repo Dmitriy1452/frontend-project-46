@@ -44,7 +44,7 @@ const stylish = (tree) => {
     return `{\n${lines.join('\n')}\n${indent(depth - 1)}}`
   }
 
-  return iter(tree, 1) + '\n'
+  return iter(tree, 1)
 }
 
 export default stylish

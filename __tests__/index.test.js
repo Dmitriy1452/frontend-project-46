@@ -9,7 +9,10 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const getFixturesPath = filename => path.join(__dirname, '..', '__fixtures__', filename)
-const readFile = filename => fs.readFileSync(getFixturesPath(filename), 'utf-8')
+const readFile = (filename) => {
+  const content = fs.readFileSync(getFixturesPath(filename), 'utf-8')
+  return content.replace(/\n+$/, '')
+}
 
 const expectedStylish = readFile('expected-result.txt')
 const expectedPlain = readFile('expected-plain.txt')
