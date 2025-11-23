@@ -1,4 +1,4 @@
-import { genDiff } from '../src/index.js'
+import genDiff from '../src/index.js'
 import { describe, test, expect } from '@jest/globals'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
