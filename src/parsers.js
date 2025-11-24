@@ -9,14 +9,14 @@ const parseFiles = (filepath1, filepath2) => {
     const absolutePath = path.resolve(cwd(), filepath)
     const data = fs.readFileSync(absolutePath, 'utf-8')
 
-    if (format === '.json') {
-      return JSON.parse(data)
-    }
-    else if (format === '.yml' || format === '.yaml') {
-      return yaml.load(data)
-    }
-    else {
-      throw new Error(`Неподдерживаемый формат: ${format}`)
+    switch (format) {
+      case '.json':
+        return JSON.parse(data)
+      case '.yml':
+      case '.yaml':
+        return yaml.load(data)
+      default:
+        throw new Error(`Unknown formal ${format}`)
     }
   }
 
