@@ -13,3 +13,4 @@
 
 [![check-config](https://github.com/Dmitriy1452/frontend-project-46/actions/workflows/check-config.yml/badge.svg)](https://github.com/Dmitriy1452/frontend-project-46/actions/workflows/check-config.yml)
 
+Ссылка на демонстрацию пакета gendiff - https://asciinema.org/a/vbfvwC2Yv5wjnv2SS1Qb0ZtZy
