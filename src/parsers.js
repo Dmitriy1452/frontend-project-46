@@ -16,7 +16,7 @@ const parseFiles = (filepath1, filepath2) => {
       case '.yaml':
         return yaml.load(data)
       default:
-        throw new Error(`Unknown formal ${format}`)
+        throw new Error(`Unknown format ${format}`)
     }
   }
 
